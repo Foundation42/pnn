@@ -132,6 +132,7 @@ class CIFARCrystalField(nn.Module):
         }
 
     def _build_bvh(self, indices: List[int], depth: int = 0) -> BVHNode:
+        """Build BVH using SAH-like heuristic for compact clusters."""
         if len(indices) == 0:
             raise ValueError("Cannot build BVH from empty indices")
 
@@ -149,13 +150,44 @@ class CIFARCrystalField(nn.Module):
         if len(indices) <= self.min_cluster_size or depth >= 6:
             return node
 
-        extent = bbox_max - bbox_min
-        split_axis = np.argmax(extent)
-        sorted_indices = sorted(indices, key=lambda i: self.positions[i, split_axis].item())
-        mid = len(sorted_indices) // 2
+        # SAH-like split: try multiple candidates, pick best
+        best_cost = float('inf')
+        best_split = None
 
-        left_indices = sorted_indices[:mid]
-        right_indices = sorted_indices[mid:]
+        for axis in range(self.space_dim):
+            sorted_indices = sorted(indices, key=lambda i: self.positions[i, axis].item())
+            n = len(sorted_indices)
+
+            for split_pos in range(max(1, n//4), min(n, 3*n//4 + 1), max(1, n//8)):
+                left_idx = sorted_indices[:split_pos]
+                right_idx = sorted_indices[split_pos:]
+
+                if len(left_idx) < self.min_cluster_size or len(right_idx) < self.min_cluster_size:
+                    continue
+
+                left_pos = positions[[indices.index(i) for i in left_idx]]
+                right_pos = positions[[indices.index(i) for i in right_idx]]
+
+                left_extent = left_pos.max(axis=0) - left_pos.min(axis=0) + 1e-6
+                right_extent = right_pos.max(axis=0) - right_pos.min(axis=0) + 1e-6
+
+                # Cost = perimeter * count (SAH for 2D)
+                left_cost = 2 * (left_extent[0] + left_extent[1]) * len(left_idx)
+                right_cost = 2 * (right_extent[0] + right_extent[1]) * len(right_idx)
+                total_cost = left_cost + right_cost
+
+                if total_cost < best_cost:
+                    best_cost = total_cost
+                    best_split = (left_idx, right_idx)
+
+        if best_split is None:
+            extent = bbox_max - bbox_min
+            split_axis = np.argmax(extent)
+            sorted_indices = sorted(indices, key=lambda i: self.positions[i, split_axis].item())
+            mid = len(sorted_indices) // 2
+            best_split = (sorted_indices[:mid], sorted_indices[mid:])
+
+        left_indices, right_indices = best_split
 
         if len(left_indices) > 0 and len(right_indices) > 0:
             node.left = self._build_bvh(left_indices, depth + 1)
