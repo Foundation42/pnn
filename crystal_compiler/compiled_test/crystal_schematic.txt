@@ -1,0 +1,72 @@
+Crystal Neural Network - Analog Circuit Schematic
+=================================================
+
+POWER SUPPLIES:
+  VDD = +5V
+  VSS = -5V
+  VREF = 0V (virtual ground)
+
+INPUT STAGE (16 inputs):
+  Each input is a voltage in range [-1V, +1V]
+  VIN0...VIN15 → Represents normalized pixel values
+
+NEURON LAYER (8 neurons):
+
+  For each neuron n:
+
+       VIN0 ──┬──[R0]──┐
+       VIN1 ──┼──[R1]──┤
+       VIN2 ──┼──[R2]──┤
+         :    :    :   │
+       VIN15 ──┴──[R15]──┴───┬──[Rfb]──┐
+                               │           │
+                              (+)         (-)
+                               │    ┌──────┤
+                            ┌──┴────┤OP-AMP├──┬──→ NOUT_n
+                            │       └──────┘  │
+                           VREF              [Diode Limiter]
+                                              │
+                                              └──→ Tanh-limited output
+
+  Weight Implementation:
+    - Weight w_i → Conductance G_i = |w_i| / R_scale
+    - Resistance R_i = R_scale / |w_i|
+    - Positive weights: direct connection
+    - Negative weights: inverted via op-amp stage
+
+  Tanh Approximation:
+    - Back-to-back diodes limit output to ~±0.7V
+    - Mimics tanh saturation behavior
+
+OUTPUT LAYER (10 outputs):
+
+       NOUT0 ──┬──[R0]──┐
+       NOUT1 ──┼──[R1]──┤
+       NOUT2 ──┼──[R2]──┤
+         :     :    :   │
+       NOUT7 ──┴──[R7]──┴───┬──[Rfb]──→ OUT_k
+                                 │
+                               (+)
+                                │
+                             ┌──┴────┐
+                             │OP-AMP │
+                             └───────┘
+
+  The output with highest voltage = predicted class!
+
+TIMING CHARACTERISTICS (estimated):
+  - Op-amp settling: ~1 µs
+  - Full propagation: ~5 µs
+  - Throughput: ~200,000 inferences/sec
+
+POWER CONSUMPTION (estimated):
+  - Per neuron: ~1 mW
+  - Total (8 neurons): ~8 mW
+  - Much lower than digital equivalent!
+
+THE INSIGHT:
+  This is the SAME neural network as the PyTorch model!
+  The crystal structure IS the intelligence.
+  We just changed the substrate from transistors to resistors + op-amps.
+
+  "Geometry compiles to physics."

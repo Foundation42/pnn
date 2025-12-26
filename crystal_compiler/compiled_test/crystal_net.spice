@@ -1,0 +1,429 @@
+* Crystal Neural Network - Analog SPICE Implementation
+* Auto-generated from PyTorch crystal model
+*
+* This netlist implements a 32-neuron crystal network
+* using analog computation:
+*   - Weights as resistor networks
+*   - Neurons as op-amp summing amplifiers
+*   - Tanh via differential pair limiting
+*
+* Original dimensions: 784 -> 32 -> 10
+* Demo dimensions: 16 -> 8 -> 10
+*
+* Frozen neurons: 26 (81.2%)
+*
+* "Intelligence crystallizes into geometry,
+*  and geometry compiles to PHYSICS!" - Analog edition
+*
+
+
+* ============================================
+* Power Supplies
+* ============================================
+VDD vdd 0 DC 5V
+VSS vss 0 DC -5V
+VREF vref 0 DC 0V
+
+* Bias current for differential pairs
+IBIAS1 vdd nbias1 DC 100uA
+
+
+* ============================================
+* Input Voltage Sources (representing input pixels)
+* ============================================
+* In real application, these would be DAC outputs or sensor signals
+* Values normalized to [-1V, 1V] range
+
+VIN0 in0 0 DC 0 AC 1 SIN(0 0.5 100)
+VIN1 in1 0 DC 0 AC 1 SIN(0 0.5 150)
+VIN2 in2 0 DC 0 AC 1 SIN(0 0.5 200)
+VIN3 in3 0 DC 0 AC 1 SIN(0 0.5 250)
+VIN4 in4 0 DC 0 AC 1 SIN(0 0.5 300)
+VIN5 in5 0 DC 0 AC 1 SIN(0 0.5 350)
+VIN6 in6 0 DC 0 AC 1 SIN(0 0.5 400)
+VIN7 in7 0 DC 0 AC 1 SIN(0 0.5 450)
+VIN8 in8 0 DC 0 AC 1 SIN(0 0.5 500)
+VIN9 in9 0 DC 0 AC 1 SIN(0 0.5 550)
+VIN10 in10 0 DC 0 AC 1 SIN(0 0.5 600)
+VIN11 in11 0 DC 0 AC 1 SIN(0 0.5 650)
+VIN12 in12 0 DC 0 AC 1 SIN(0 0.5 700)
+VIN13 in13 0 DC 0 AC 1 SIN(0 0.5 750)
+VIN14 in14 0 DC 0 AC 1 SIN(0 0.5 800)
+VIN15 in15 0 DC 0 AC 1 SIN(0 0.5 850)
+
+* ============================================
+* Neuron Circuits (Summing Amplifiers + Tanh)
+* ============================================
+* Each neuron: sum(w_i * x_i) + bias, then tanh
+*
+* Architecture:
+*   1. Resistor network for weighted sum (currents sum at virtual ground)
+*   2. Op-amp converts current to voltage
+*   3. Differential pair for tanh-like saturation
+*
+
+
+* ----- Neuron 0 -----
+* Input weights for neuron 0
+RIN0_0 in0 nsum0 11338  ; w=0.882
+RIN0_1 in1 nsum0 12313  ; w=0.812
+RIN0_2 in2 nsum0 47989
+RIN0_3 in3 nsum0 11182  ; w=0.894
+RIN0_4 in4 nsum0 395556  ; w=0.025
+RIN0_5 in5 nsum0 45328  ; w=0.221
+RIN0_6 in6 nsum0 64147
+RIN0_7 in7 nsum0 11831  ; w=0.845
+RIN0_8 in8 nsum0 219287  ; w=0.046
+RIN0_9 in9 nsum0 18041509  ; w=0.001
+RIN0_10 in10 nsum0 15020  ; w=0.666
+RIN0_11 in11 nsum0 11432  ; w=0.875
+RIN0_12 in12 nsum0 42285  ; w=0.236
+RIN0_13 in13 nsum0 28074
+RIN0_14 in14 nsum0 12892  ; w=0.776
+RIN0_15 in15 nsum0 64035
+RFB0 nsum0 nout0_pre 10000
+* Op-amp for neuron 0
+XOPAMP0 vref nsum0 vdd vss nout0_pre OPAMP_IDEAL
+* Tanh limiting (diode clipping)
+D0P nout0_pre nout0 DLIMIT
+D0N nout0 nout0_pre DLIMIT
+ROUT0 nout0_pre nout0 1k
+
+* ----- Neuron 1 -----
+* Input weights for neuron 1
+RIN1_0 in0 nsum1 24861
+RIN1_1 in1 nsum1 18409
+RIN1_2 in2 nsum1 177442
+RIN1_3 in3 nsum1 15140
+RIN1_4 in4 nsum1 33647  ; w=0.297
+RIN1_5 in5 nsum1 35909
+RIN1_6 in6 nsum1 23952
+RIN1_7 in7 nsum1 14226  ; w=0.703
+RIN1_8 in8 nsum1 30192  ; w=0.331
+RIN1_9 in9 nsum1 18029
+RIN1_10 in10 nsum1 17015
+RIN1_11 in11 nsum1 17328
+RIN1_12 in12 nsum1 25701  ; w=0.389
+RIN1_13 in13 nsum1 30570
+RIN1_14 in14 nsum1 26335  ; w=0.380
+RIN1_15 in15 nsum1 20494
+RFB1 nsum1 nout1_pre 10000
+* Op-amp for neuron 1
+XOPAMP1 vref nsum1 vdd vss nout1_pre OPAMP_IDEAL
+* Tanh limiting (diode clipping)
+D1P nout1_pre nout1 DLIMIT
+D1N nout1 nout1_pre DLIMIT
+ROUT1 nout1_pre nout1 1k
+
+* ----- Neuron 2 -----
+* Input weights for neuron 2
+RIN2_0 in0 nsum2 11516  ; w=0.868
+RIN2_1 in1 nsum2 16999
+RIN2_2 in2 nsum2 15318
+RIN2_3 in3 nsum2 6797
+RIN2_4 in4 nsum2 15408  ; w=0.649
+RIN2_5 in5 nsum2 41473  ; w=0.241
+RIN2_6 in6 nsum2 14691
+RIN2_7 in7 nsum2 15067
+RIN2_8 in8 nsum2 68257
+RIN2_9 in9 nsum2 46377  ; w=0.216
+RIN2_10 in10 nsum2 189208
+RIN2_11 in11 nsum2 280864  ; w=0.036
+RIN2_12 in12 nsum2 107717
+RIN2_13 in13 nsum2 71545  ; w=0.140
+RIN2_14 in14 nsum2 34428
+RIN2_15 in15 nsum2 157475  ; w=0.064
+RFB2 nsum2 nout2_pre 10000
+* Op-amp for neuron 2
+XOPAMP2 vref nsum2 vdd vss nout2_pre OPAMP_IDEAL
+* Tanh limiting (diode clipping)
+D2P nout2_pre nout2 DLIMIT
+D2N nout2 nout2_pre DLIMIT
+ROUT2 nout2_pre nout2 1k
+
+* ----- Neuron 3 -----
+* Input weights for neuron 3
+RIN3_0 in0 nsum3 7604  ; w=1.315
+RIN3_1 in1 nsum3 345724
+RIN3_2 in2 nsum3 111016  ; w=0.090
+RIN3_3 in3 nsum3 15754  ; w=0.635
+RIN3_4 in4 nsum3 12659
+RIN3_5 in5 nsum3 30064
+RIN3_6 in6 nsum3 79240
+RIN3_7 in7 nsum3 21214  ; w=0.471
+RIN3_8 in8 nsum3 277689
+RIN3_9 in9 nsum3 18118
+RIN3_10 in10 nsum3 59714
+RIN3_11 in11 nsum3 30560  ; w=0.327
+RIN3_12 in12 nsum3 91419
+RIN3_13 in13 nsum3 13689
+RIN3_14 in14 nsum3 23369
+RIN3_15 in15 nsum3 80165  ; w=0.125
+RFB3 nsum3 nout3_pre 10000
+* Op-amp for neuron 3
+XOPAMP3 vref nsum3 vdd vss nout3_pre OPAMP_IDEAL
+* Tanh limiting (diode clipping)
+D3P nout3_pre nout3 DLIMIT
+D3N nout3 nout3_pre DLIMIT
+ROUT3 nout3_pre nout3 1k
+
+* ----- Neuron 4 -----
+* Input weights for neuron 4
+RIN4_0 in0 nsum4 20933  ; w=0.478
+RIN4_1 in1 nsum4 20049  ; w=0.499
+RIN4_2 in2 nsum4 15501  ; w=0.645
+RIN4_3 in3 nsum4 14397  ; w=0.695
+RIN4_4 in4 nsum4 16539  ; w=0.605
+RIN4_5 in5 nsum4 23121  ; w=0.433
+RIN4_6 in6 nsum4 18574  ; w=0.538
+RIN4_7 in7 nsum4 1842488  ; w=0.005
+RIN4_8 in8 nsum4 13100  ; w=0.763
+RIN4_9 in9 nsum4 114957  ; w=0.087
+RIN4_10 in10 nsum4 12841
+RIN4_11 in11 nsum4 15980  ; w=0.626
+RIN4_12 in12 nsum4 36817
+RIN4_13 in13 nsum4 368804  ; w=0.027
+RIN4_14 in14 nsum4 33583  ; w=0.298
+RIN4_15 in15 nsum4 8998  ; w=1.111
+RFB4 nsum4 nout4_pre 10000
+* Op-amp for neuron 4
+XOPAMP4 vref nsum4 vdd vss nout4_pre OPAMP_IDEAL
+* Tanh limiting (diode clipping)
+D4P nout4_pre nout4 DLIMIT
+D4N nout4 nout4_pre DLIMIT
+ROUT4 nout4_pre nout4 1k
+
+* ----- Neuron 5 -----
+* Input weights for neuron 5
+RIN5_0 in0 nsum5 31070
+RIN5_1 in1 nsum5 91784
+RIN5_2 in2 nsum5 13207
+RIN5_3 in3 nsum5 142713  ; w=0.070
+RIN5_4 in4 nsum5 28334  ; w=0.353
+RIN5_5 in5 nsum5 8901
+RIN5_6 in6 nsum5 36827  ; w=0.272
+RIN5_7 in7 nsum5 29670  ; w=0.337
+RIN5_8 in8 nsum5 24094  ; w=0.415
+RIN5_9 in9 nsum5 28018  ; w=0.357
+RIN5_10 in10 nsum5 26802
+RIN5_11 in11 nsum5 9578  ; w=1.044
+RIN5_12 in12 nsum5 15504  ; w=0.645
+RIN5_13 in13 nsum5 35780
+RIN5_14 in14 nsum5 37105  ; w=0.270
+RIN5_15 in15 nsum5 40935
+RFB5 nsum5 nout5_pre 10000
+* Op-amp for neuron 5
+XOPAMP5 vref nsum5 vdd vss nout5_pre OPAMP_IDEAL
+* Tanh limiting (diode clipping)
+D5P nout5_pre nout5 DLIMIT
+D5N nout5 nout5_pre DLIMIT
+ROUT5 nout5_pre nout5 1k
+
+* ----- Neuron 6 -----
+* Input weights for neuron 6
+RIN6_0 in0 nsum6 25888
+RIN6_1 in1 nsum6 38060
+RIN6_2 in2 nsum6 34507
+RIN6_3 in3 nsum6 241207
+RIN6_4 in4 nsum6 19275
+RIN6_5 in5 nsum6 17242  ; w=0.580
+RIN6_6 in6 nsum6 25731  ; w=0.389
+RIN6_7 in7 nsum6 15567
+RIN6_8 in8 nsum6 28953  ; w=0.345
+RIN6_9 in9 nsum6 9990
+RIN6_10 in10 nsum6 17194
+RIN6_11 in11 nsum6 21582  ; w=0.463
+RIN6_12 in12 nsum6 82449
+RIN6_13 in13 nsum6 8643
+RIN6_14 in14 nsum6 30907
+RIN6_15 in15 nsum6 35588
+RFB6 nsum6 nout6_pre 10000
+* Op-amp for neuron 6
+XOPAMP6 vref nsum6 vdd vss nout6_pre OPAMP_IDEAL
+* Tanh limiting (diode clipping)
+D6P nout6_pre nout6 DLIMIT
+D6N nout6 nout6_pre DLIMIT
+ROUT6 nout6_pre nout6 1k
+
+* ----- Neuron 7 -----
+* Input weights for neuron 7
+RIN7_0 in0 nsum7 58847  ; w=0.170
+RIN7_1 in1 nsum7 11825  ; w=0.846
+RIN7_2 in2 nsum7 11259  ; w=0.888
+RIN7_3 in3 nsum7 32628
+RIN7_4 in4 nsum7 48555  ; w=0.206
+RIN7_5 in5 nsum7 20256  ; w=0.494
+RIN7_6 in6 nsum7 10817  ; w=0.924
+RIN7_7 in7 nsum7 779822  ; w=0.013
+RIN7_8 in8 nsum7 18275  ; w=0.547
+RIN7_9 in9 nsum7 18570  ; w=0.539
+RIN7_10 in10 nsum7 40988
+RIN7_11 in11 nsum7 140235  ; w=0.071
+RIN7_12 in12 nsum7 61141  ; w=0.164
+RIN7_13 in13 nsum7 9948
+RIN7_14 in14 nsum7 35727
+RIN7_15 in15 nsum7 99321
+RFB7 nsum7 nout7_pre 10000
+* Op-amp for neuron 7
+XOPAMP7 vref nsum7 vdd vss nout7_pre OPAMP_IDEAL
+* Tanh limiting (diode clipping)
+D7P nout7_pre nout7 DLIMIT
+D7N nout7 nout7_pre DLIMIT
+ROUT7 nout7_pre nout7 1k
+
+* ============================================
+* Output Layer (10 classes)
+* ============================================
+* Each output sums contributions from all neurons
+*
+
+
+* ----- Output 0 -----
+ROUT0_0 nout0 osum0 18896
+ROUT0_1 nout1 osum0 20521
+ROUT0_2 nout2 osum0 79982
+ROUT0_3 nout3 osum0 18636
+ROUT0_4 nout4 osum0 659260
+ROUT0_5 nout5 osum0 75547
+ROUT0_6 nout6 osum0 106912
+ROUT0_7 nout7 osum0 19718
+XOUT0 vref osum0 vdd vss out0 OPAMP_IDEAL
+
+* ----- Output 1 -----
+ROUT1_0 nout0 osum1 19050
+ROUT1_1 nout1 osum1 12314
+ROUT1_2 nout2 osum1 19983
+ROUT1_3 nout3 osum1 26682
+ROUT1_4 nout4 osum1 79704
+ROUT1_5 nout5 osum1 135874
+ROUT1_6 nout6 osum1 15397
+ROUT1_7 nout7 osum1 67477
+XOUT1 vref osum1 vdd vss out1 OPAMP_IDEAL
+
+* ----- Output 2 -----
+ROUT2_0 nout0 osum2 22973
+ROUT2_1 nout1 osum2 105224
+ROUT2_2 nout2 osum2 45298
+ROUT2_3 nout3 osum2 95222
+ROUT2_4 nout4 osum2 186537
+ROUT2_5 nout5 osum2 466366
+ROUT2_6 nout6 osum2 59288
+ROUT2_7 nout7 osum2 14528
+XOUT2 vref osum2 vdd vss out2 OPAMP_IDEAL
+
+* ----- Output 3 -----
+ROUT3_0 nout0 osum3 22444
+ROUT3_1 nout1 osum3 33776
+ROUT3_2 nout2 osum3 30562
+ROUT3_3 nout3 osum3 39609
+ROUT3_4 nout4 osum3 27679
+ROUT3_5 nout5 osum3 172183
+ROUT3_6 nout6 osum3 279291
+ROUT3_7 nout7 osum3 41794
+XOUT3 vref osum3 vdd vss out3 OPAMP_IDEAL
+
+* ----- Output 4 -----
+ROUT4_0 nout0 osum4 29484
+ROUT4_1 nout1 osum4 38035
+ROUT4_2 nout2 osum4 988504
+ROUT4_3 nout3 osum4 103255
+ROUT4_4 nout4 osum4 28184
+ROUT4_5 nout5 osum4 31481
+ROUT4_6 nout6 osum4 393033
+ROUT4_7 nout7 osum4 2620881
+XOUT4 vref osum4 vdd vss out4 OPAMP_IDEAL
+
+* ----- Output 5 -----
+ROUT5_0 nout0 osum5 88332
+ROUT5_1 nout1 osum5 517530
+ROUT5_2 nout2 osum5 3536866
+ROUT5_3 nout3 osum5 1107193
+ROUT5_4 nout4 osum5 60454
+ROUT5_5 nout5 osum5 72318
+ROUT5_6 nout6 osum5 77285
+ROUT5_7 nout7 osum5 73016
+XOUT5 vref osum5 vdd vss out5 OPAMP_IDEAL
+
+* ----- Output 6 -----
+ROUT6_0 nout0 osum6 736184
+ROUT6_1 nout1 osum6 100415
+ROUT6_2 nout2 osum6 33001
+ROUT6_3 nout3 osum6 14655
+ROUT6_4 nout4 osum6 40826
+ROUT6_5 nout5 osum6 5381945
+ROUT6_6 nout6 osum6 43360
+ROUT6_7 nout7 osum6 123070
+XOUT6 vref osum6 vdd vss out6 OPAMP_IDEAL
+
+* ----- Output 7 -----
+ROUT7_0 nout0 osum7 120254
+ROUT7_1 nout1 osum7 110413
+ROUT7_2 nout2 osum7 69957
+ROUT7_3 nout3 osum7 69340
+ROUT7_4 nout4 osum7 120474
+ROUT7_5 nout5 osum7 44182
+ROUT7_6 nout6 osum7 14123
+ROUT7_7 nout7 osum7 74075
+XOUT7 vref osum7 vdd vss out7 OPAMP_IDEAL
+
+* ----- Output 8 -----
+ROUT8_0 nout0 osum8 166379
+ROUT8_1 nout1 osum8 17816
+ROUT8_2 nout2 osum8 13184
+ROUT8_3 nout3 osum8 63506
+ROUT8_4 nout4 osum8 48389
+ROUT8_5 nout5 osum8 451087
+ROUT8_6 nout6 osum8 65418
+ROUT8_7 nout7 osum8 140817
+XOUT8 vref osum8 vdd vss out8 OPAMP_IDEAL
+
+* ----- Output 9 -----
+ROUT9_0 nout0 osum9 18627
+ROUT9_1 nout1 osum9 62804
+ROUT9_2 nout2 osum9 66113
+ROUT9_3 nout3 osum9 31172
+ROUT9_4 nout4 osum9 68181
+ROUT9_5 nout5 osum9 148482
+ROUT9_6 nout6 osum9 24249
+ROUT9_7 nout7 osum9 200382
+XOUT9 vref osum9 vdd vss out9 OPAMP_IDEAL
+
+* ============================================
+* Subcircuit Definitions
+* ============================================
+
+* Ideal op-amp model
+.SUBCKT OPAMP_IDEAL inp inn vdd vss out
+EOUT out 0 VALUE={100000*V(inp,inn)}
+ROUT out 0 100
+.ENDS
+
+* Limiting diode model
+.MODEL DLIMIT D(IS=1e-14 N=1.0 BV=0.7)
+
+* ============================================
+* Analysis Commands
+* ============================================
+
+* DC operating point
+.OP
+
+* Transient analysis (10ms, 1us step)
+.TRAN 1us 10ms
+
+* AC analysis
+.AC DEC 10 1 100k
+
+* Measure output voltages
+.MEASURE TRAN out0_avg AVG V(out0) FROM=5ms TO=10ms
+.MEASURE TRAN out1_avg AVG V(out1) FROM=5ms TO=10ms
+.MEASURE TRAN out2_avg AVG V(out2) FROM=5ms TO=10ms
+
+* ============================================
+* Probe Outputs
+* ============================================
+.PROBE V(out0) V(out1) V(out2) V(out3) V(out4)
+.PROBE V(out5) V(out6) V(out7) V(out8) V(out9)
+.PROBE V(nout0) V(nout1) V(nout2) V(nout3)
+
+.END
