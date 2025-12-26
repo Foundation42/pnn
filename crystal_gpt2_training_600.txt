@@ -1,0 +1,311 @@
+[5] Training Crystal (crystal_gpt2_20251226_150401)...
+======================================================================
+Epoch   1 | Loss: 5.865 | Neurons:   96 | Frozen:    0 (0%) | Speedup: 1.0x | +0/-0 | 0.1m
+         → "The meaning of life is used to a " ".@.@-@, was released to " – the " ..."
+Epoch   2 | Loss: 3.809 | Neurons:   96 | Frozen:    0 (0%) | Speedup: 1.0x | +0/-0 | 0.2m
+Epoch   3 | Loss: 3.474 | Neurons:   96 | Frozen:    0 (0%) | Speedup: 1.0x | +0/-0 | 0.2m
+Epoch   4 | Loss: 3.387 | Neurons:   96 | Frozen:    0 (0%) | Speedup: 1.0x | +0/-0 | 0.3m
+Epoch   5 | Loss: 3.285 | Neurons:   96 | Frozen:    0 (0%) | Speedup: 1.0x | +0/-0 | 0.4m
+Epoch   6 | Loss: 3.212 | Neurons:   96 | Frozen:    0 (0%) | Speedup: 1.0x | +0/-0 | 0.4m
+Epoch   7 | Loss: 3.112 | Neurons:   96 | Frozen:    0 (0%) | Speedup: 1.0x | +0/-0 | 0.5m
+Epoch   8 | Loss: 3.067 | Neurons:   96 | Frozen:    0 (0%) | Speedup: 1.0x | +0/-0 | 0.6m
+Epoch   9 | Loss: 3.028 | Neurons:   96 | Frozen:    0 (0%) | Speedup: 1.0x | +0/-0 | 0.6m
+Epoch  10 | Loss: 2.968 | Neurons:   96 | Frozen:    0 (0%) | Speedup: 1.0x | +0/-0 | 0.7m
+         → "The meaning of life is an end of the British and the name , and was a ..."
+Epoch  13 | Loss: 2.886 | Neurons:  108 | Frozen:    0 (0%) | Speedup: 1.0x | +12/-0 | 0.9m
+Epoch  16 | Loss: 2.850 | Neurons:  120 | Frozen:    0 (0%) | Speedup: 1.0x | +12/-0 | 1.1m
+Epoch  19 | Loss: 2.731 | Neurons:  132 | Frozen:    6 (5%) | Speedup: 1.0x | +12/-6 | 1.3m
+         → "The meaning of life is the " , the first game against the first game a..."
+Epoch  22 | Loss: 2.735 | Neurons:  144 | Frozen:   10 (7%) | Speedup: 1.1x | +12/-4 | 1.5m
+Epoch  25 | Loss: 2.648 | Neurons:  156 | Frozen:   13 (8%) | Speedup: 1.1x | +12/-3 | 1.7m
+Epoch  28 | Loss: 2.585 | Neurons:  168 | Frozen:   16 (10%) | Speedup: 1.1x | +12/-3 | 1.9m
+         → "The meaning of life is the " , the UK , and a more than other than 1 @..."
+Epoch  31 | Loss: 2.533 | Neurons:  180 | Frozen:   25 (14%) | Speedup: 1.2x | +12/-9 | 2.1m
+Epoch  34 | Loss: 2.518 | Neurons:  192 | Frozen:   29 (15%) | Speedup: 1.2x | +12/-4 | 2.3m
+Epoch  37 | Loss: 2.492 | Neurons:  204 | Frozen:   38 (19%) | Speedup: 1.2x | +12/-9 | 2.5m
+Epoch  40 | Loss: 2.423 | Neurons:  216 | Frozen:   46 (21%) | Speedup: 1.3x | +12/-8 | 2.8m
+         → "The meaning of life is a few years , the film , at the " , the most of..."
+Epoch  43 | Loss: 2.419 | Neurons:  228 | Frozen:   57 (25%) | Speedup: 1.3x | +12/-11 | 3.0m
+Epoch  46 | Loss: 2.428 | Neurons:  240 | Frozen:   65 (27%) | Speedup: 1.4x | +12/-8 | 3.2m
+Epoch  49 | Loss: 2.425 | Neurons:  252 | Frozen:   74 (29%) | Speedup: 1.4x | +12/-9 | 3.4m
+Epoch  50 | Loss: 2.435 | Neurons:  252 | Frozen:   74 (29%) | Speedup: 1.4x | +0/-0 | 3.5m
+         → "The meaning of life is an important deities in the United States 's an..."
+Epoch  52 | Loss: 2.603 | Neurons:  264 | Frozen:   88 (33%) | Speedup: 1.5x | +12/-14 | 3.6m
+Epoch  55 | Loss: 2.605 | Neurons:  276 | Frozen:   94 (34%) | Speedup: 1.5x | +12/-6 | 3.8m
+Epoch  58 | Loss: 2.484 | Neurons:  288 | Frozen:  106 (37%) | Speedup: 1.6x | +12/-12 | 4.0m
+         → "The meaning of life is a unique from a " , and two @-@ 4 @. 4 @-@ 000 ..."
+Epoch  61 | Loss: 2.503 | Neurons:  300 | Frozen:  122 (41%) | Speedup: 1.7x | +12/-16 | 4.3m
+Epoch  64 | Loss: 2.454 | Neurons:  312 | Frozen:  129 (41%) | Speedup: 1.7x | +12/-7 | 4.5m
+Epoch  67 | Loss: 2.419 | Neurons:  324 | Frozen:  140 (43%) | Speedup: 1.8x | +12/-11 | 4.7m
+Epoch  70 | Loss: 2.402 | Neurons:  336 | Frozen:  151 (45%) | Speedup: 1.8x | +12/-11 | 4.9m
+         → "The meaning of life is an early times between the state of the first f..."
+Epoch  73 | Loss: 2.373 | Neurons:  348 | Frozen:  164 (47%) | Speedup: 1.9x | +12/-13 | 5.1m
+Epoch  75 | Loss: 2.322 | Neurons:  348 | Frozen:  164 (47%) | Speedup: 1.9x | +0/-0 | 5.3m
+Epoch  76 | Loss: 2.321 | Neurons:  360 | Frozen:  173 (48%) | Speedup: 1.9x | +12/-9 | 5.4m
+Epoch  79 | Loss: 2.265 | Neurons:  372 | Frozen:  184 (49%) | Speedup: 2.0x | +12/-11 | 5.6m
+         → "The meaning of life is a variety of the use of the firsts " The German..."
+Epoch  82 | Loss: 2.234 | Neurons:  384 | Frozen:  196 (51%) | Speedup: 2.0x | +12/-12 | 5.8m
+Epoch  85 | Loss: 2.192 | Neurons:  396 | Frozen:  209 (53%) | Speedup: 2.1x | +12/-13 | 6.0m
+Epoch  88 | Loss: 2.191 | Neurons:  408 | Frozen:  220 (54%) | Speedup: 2.2x | +12/-11 | 6.2m
+         → "The meaning of life is a high winds to the island . Many archaeologist..."
+Epoch  91 | Loss: 2.107 | Neurons:  420 | Frozen:  234 (56%) | Speedup: 2.3x | +12/-14 | 6.5m
+Epoch  94 | Loss: 2.076 | Neurons:  432 | Frozen:  246 (57%) | Speedup: 2.3x | +12/-12 | 6.7m
+Epoch  97 | Loss: 1.996 | Neurons:  444 | Frozen:  258 (58%) | Speedup: 2.4x | +12/-12 | 6.9m
+Epoch 100 | Loss: 1.953 | Neurons:  456 | Frozen:  271 (59%) | Speedup: 2.5x | +12/-13 | 7.2m
+         → "The meaning of life is the Jewish Community of the British pop rock mu..."
+Epoch 103 | Loss: 1.903 | Neurons:  468 | Frozen:  284 (61%) | Speedup: 2.5x | +12/-13 | 7.4m
+Epoch 106 | Loss: 1.907 | Neurons:  480 | Frozen:  294 (61%) | Speedup: 2.6x | +12/-10 | 7.6m
+Epoch 109 | Loss: 1.842 | Neurons:  492 | Frozen:  305 (62%) | Speedup: 2.6x | +12/-11 | 7.9m
+         → "The meaning of life is a complex and other revolutionaries , it is a "..."
+Epoch 112 | Loss: 1.821 | Neurons:  504 | Frozen:  321 (64%) | Speedup: 2.8x | +12/-16 | 8.1m
+Epoch 115 | Loss: 1.829 | Neurons:  516 | Frozen:  331 (64%) | Speedup: 2.8x | +12/-10 | 8.3m
+Epoch 118 | Loss: 1.770 | Neurons:  528 | Frozen:  342 (65%) | Speedup: 2.8x | +12/-11 | 8.6m
+         → "The meaning of life is omnivorous , a different stages of her studio a..."
+Epoch 121 | Loss: 1.750 | Neurons:  540 | Frozen:  357 (66%) | Speedup: 3.0x | +12/-15 | 8.8m
+Epoch 124 | Loss: 1.697 | Neurons:  552 | Frozen:  367 (66%) | Speedup: 3.0x | +12/-10 | 9.1m
+Epoch 125 | Loss: 1.705 | Neurons:  552 | Frozen:  367 (66%) | Speedup: 3.0x | +0/-0 | 9.2m
+Epoch 127 | Loss: 1.696 | Neurons:  564 | Frozen:  379 (67%) | Speedup: 3.0x | +12/-12 | 9.3m
+Epoch 130 | Loss: 1.700 | Neurons:  576 | Frozen:  393 (68%) | Speedup: 3.1x | +12/-14 | 9.6m
+         → "The meaning of life is the east of the corn crake and to the United , ..."
+Epoch 133 | Loss: 1.688 | Neurons:  588 | Frozen:  404 (69%) | Speedup: 3.2x | +12/-11 | 9.8m
+Epoch 136 | Loss: 1.670 | Neurons:  600 | Frozen:  416 (69%) | Speedup: 3.3x | +12/-12 | 10.0m
+Epoch 139 | Loss: 1.673 | Neurons:  612 | Frozen:  425 (69%) | Speedup: 3.3x | +12/-9 | 10.3m
+         → "The meaning of life is the Jewish Community of the novel based in the ..."
+Epoch 142 | Loss: 1.634 | Neurons:  624 | Frozen:  438 (70%) | Speedup: 3.4x | +12/-13 | 10.5m
+Epoch 145 | Loss: 1.653 | Neurons:  636 | Frozen:  449 (71%) | Speedup: 3.4x | +12/-11 | 10.8m
+Epoch 148 | Loss: 1.661 | Neurons:  648 | Frozen:  462 (71%) | Speedup: 3.5x | +12/-13 | 11.0m
+Epoch 150 | Loss: 1.620 | Neurons:  648 | Frozen:  462 (71%) | Speedup: 3.5x | +0/-0 | 11.2m
+         → "The meaning of life is a pre-@ themed Christmas record ) is an America..."
+Epoch 151 | Loss: 1.783 | Neurons:  660 | Frozen:  473 (72%) | Speedup: 3.5x | +12/-11 | 11.3m
+Epoch 154 | Loss: 1.915 | Neurons:  672 | Frozen:  483 (72%) | Speedup: 3.6x | +12/-10 | 11.6m
+Epoch 157 | Loss: 1.879 | Neurons:  684 | Frozen:  492 (72%) | Speedup: 3.6x | +12/-9 | 11.8m
+Epoch 160 | Loss: 1.877 | Neurons:  696 | Frozen:  506 (73%) | Speedup: 3.7x | +12/-14 | 12.1m
+         → "The meaning of life is a complex and medical authorities . In recognit..."
+Epoch 163 | Loss: 1.814 | Neurons:  708 | Frozen:  517 (73%) | Speedup: 3.7x | +12/-11 | 12.3m
+Epoch 166 | Loss: 1.789 | Neurons:  720 | Frozen:  529 (73%) | Speedup: 3.8x | +12/-12 | 12.6m
+Epoch 169 | Loss: 1.779 | Neurons:  732 | Frozen:  539 (74%) | Speedup: 3.8x | +12/-10 | 12.8m
+         → "The meaning of life is the Soviets , Wheeler was to learn the Israel a..."
+Epoch 172 | Loss: 1.744 | Neurons:  744 | Frozen:  553 (74%) | Speedup: 3.9x | +12/-14 | 13.1m
+Epoch 175 | Loss: 1.724 | Neurons:  756 | Frozen:  564 (75%) | Speedup: 3.9x | +12/-11 | 13.4m
+Epoch 178 | Loss: 1.685 | Neurons:  768 | Frozen:  578 (75%) | Speedup: 4.0x | +12/-14 | 13.6m
+         → "The meaning of life is to the main cave , and a short @-@ day emergenc..."
+Epoch 181 | Loss: 1.676 | Neurons:  780 | Frozen:  592 (76%) | Speedup: 4.1x | +12/-14 | 13.9m
+Epoch 184 | Loss: 1.650 | Neurons:  792 | Frozen:  602 (76%) | Speedup: 4.2x | +12/-10 | 14.2m
+Epoch 187 | Loss: 1.629 | Neurons:  804 | Frozen:  615 (76%) | Speedup: 4.3x | +12/-13 | 14.4m
+Epoch 190 | Loss: 1.637 | Neurons:  816 | Frozen:  627 (77%) | Speedup: 4.3x | +12/-12 | 14.7m
+         → "The meaning of life is the UK , including his first season , and direc..."
+Epoch 193 | Loss: 1.622 | Neurons:  828 | Frozen:  638 (77%) | Speedup: 4.4x | +12/-11 | 15.0m
+Epoch 196 | Loss: 1.599 | Neurons:  840 | Frozen:  649 (77%) | Speedup: 4.4x | +12/-11 | 15.2m
+Epoch 199 | Loss: 1.583 | Neurons:  852 | Frozen:  662 (78%) | Speedup: 4.5x | +12/-13 | 15.5m
+Epoch 200 | Loss: 1.597 | Neurons:  852 | Frozen:  662 (78%) | Speedup: 4.5x | +0/-0 | 15.6m
+         → "The meaning of life is omnivorous , but mainly feeds on the whole glor..."
+Epoch 202 | Loss: 1.559 | Neurons:  864 | Frozen:  674 (78%) | Speedup: 4.5x | +12/-12 | 15.8m
+Epoch 205 | Loss: 1.569 | Neurons:  876 | Frozen:  685 (78%) | Speedup: 4.6x | +12/-11 | 16.1m
+Epoch 208 | Loss: 1.552 | Neurons:  888 | Frozen:  699 (79%) | Speedup: 4.7x | +12/-14 | 16.3m
+         → "The meaning of life is about a visit to the first major label single "..."
+Epoch 211 | Loss: 1.564 | Neurons:  900 | Frozen:  712 (79%) | Speedup: 4.8x | +12/-13 | 16.6m
+Epoch 214 | Loss: 1.508 | Neurons:  912 | Frozen:  723 (79%) | Speedup: 4.8x | +12/-11 | 16.9m
+Epoch 217 | Loss: 1.470 | Neurons:  924 | Frozen:  735 (80%) | Speedup: 4.9x | +12/-12 | 17.2m
+Epoch 220 | Loss: 1.513 | Neurons:  936 | Frozen:  749 (80%) | Speedup: 5.0x | +12/-14 | 17.5m
+         → "The meaning of life is to a mix of the contract with AML after the Cet..."
+Epoch 223 | Loss: 1.505 | Neurons:  948 | Frozen:  760 (80%) | Speedup: 5.0x | +12/-11 | 17.8m
+Epoch 225 | Loss: 1.477 | Neurons:  948 | Frozen:  760 (80%) | Speedup: 5.0x | +0/-0 | 18.0m
+Epoch 226 | Loss: 1.462 | Neurons:  960 | Frozen:  772 (80%) | Speedup: 5.1x | +12/-12 | 18.0m
+Epoch 229 | Loss: 1.455 | Neurons:  972 | Frozen:  786 (81%) | Speedup: 5.2x | +12/-14 | 18.3m
+         → "The meaning of life is the phrase , Jordan played live set mixed with ..."
+Epoch 232 | Loss: 1.445 | Neurons:  984 | Frozen:  796 (81%) | Speedup: 5.2x | +12/-10 | 18.6m
+Epoch 235 | Loss: 1.440 | Neurons:  996 | Frozen:  809 (81%) | Speedup: 5.3x | +12/-13 | 18.9m
+Epoch 238 | Loss: 1.448 | Neurons: 1008 | Frozen:  822 (82%) | Speedup: 5.4x | +12/-13 | 19.2m
+         → "The meaning of life is solitary on the Trimurti 's first commandment i..."
+Epoch 241 | Loss: 1.401 | Neurons: 1020 | Frozen:  833 (82%) | Speedup: 5.5x | +12/-11 | 19.5m
+Epoch 244 | Loss: 1.406 | Neurons: 1032 | Frozen:  844 (82%) | Speedup: 5.5x | +12/-11 | 19.8m
+Epoch 247 | Loss: 1.398 | Neurons: 1044 | Frozen:  858 (82%) | Speedup: 5.6x | +12/-14 | 20.1m
+Epoch 250 | Loss: 1.398 | Neurons: 1056 | Frozen:  870 (82%) | Speedup: 5.7x | +12/-12 | 20.4m
+         → "The meaning of life is a medium @-@ year . A property adjoining the la..."
+Epoch 253 | Loss: 1.417 | Neurons: 1068 | Frozen:  880 (82%) | Speedup: 5.7x | +12/-10 | 20.7m
+Epoch 256 | Loss: 1.386 | Neurons: 1080 | Frozen:  892 (83%) | Speedup: 5.7x | +12/-12 | 21.0m
+Epoch 259 | Loss: 1.381 | Neurons: 1092 | Frozen:  906 (83%) | Speedup: 5.9x | +12/-14 | 21.3m
+         → "The meaning of life is seen by Linnaeus in the use of the Israel: ( CH..."
+Epoch 262 | Loss: 1.368 | Neurons: 1104 | Frozen:  913 (83%) | Speedup: 5.8x | +12/-7 | 21.6m
+Epoch 265 | Loss: 1.343 | Neurons: 1116 | Frozen:  930 (83%) | Speedup: 6.0x | +12/-17 | 21.9m
+Epoch 268 | Loss: 1.340 | Neurons: 1128 | Frozen:  941 (83%) | Speedup: 6.0x | +12/-11 | 22.2m
+         → "The meaning of life is the male corn crake 's ship Zrínyi " ( 72 km / ..."
+Epoch 271 | Loss: 1.388 | Neurons: 1140 | Frozen:  951 (83%) | Speedup: 6.0x | +12/-10 | 22.5m
+Epoch 274 | Loss: 1.352 | Neurons: 1152 | Frozen:  965 (84%) | Speedup: 6.2x | +12/-14 | 22.8m
+Epoch 275 | Loss: 1.308 | Neurons: 1152 | Frozen:  965 (84%) | Speedup: 6.2x | +0/-0 | 22.9m
+Epoch 277 | Loss: 1.360 | Neurons: 1164 | Frozen:  978 (84%) | Speedup: 6.3x | +12/-13 | 23.1m
+Epoch 280 | Loss: 1.367 | Neurons: 1176 | Frozen:  989 (84%) | Speedup: 6.3x | +12/-11 | 23.4m
+         → "The meaning of life is saprobic — deriving nutrients by Longacre for t..."
+Epoch 283 | Loss: 1.335 | Neurons: 1188 | Frozen: 1002 (84%) | Speedup: 6.4x | +12/-13 | 23.7m
+Epoch 286 | Loss: 1.325 | Neurons: 1200 | Frozen: 1014 (84%) | Speedup: 6.5x | +12/-12 | 24.1m
+Epoch 289 | Loss: 1.302 | Neurons: 1212 | Frozen: 1025 (85%) | Speedup: 6.5x | +12/-11 | 24.4m
+         → "The meaning of life is saprob ( Iver McKay , and direct movies . The X..."
+Epoch 292 | Loss: 1.312 | Neurons: 1224 | Frozen: 1038 (85%) | Speedup: 6.6x | +12/-13 | 24.7m
+Epoch 295 | Loss: 1.311 | Neurons: 1236 | Frozen: 1048 (85%) | Speedup: 6.6x | +12/-10 | 25.0m
+Epoch 298 | Loss: 1.295 | Neurons: 1248 | Frozen: 1061 (85%) | Speedup: 6.7x | +12/-13 | 25.3m
+Epoch 300 | Loss: 1.287 | Neurons: 1248 | Frozen: 1061 (85%) | Speedup: 6.7x | +0/-0 | 25.5m
+         → "The meaning of life is the other than a new script tentatively titled ..."
+Epoch 301 | Loss: 1.312 | Neurons: 1260 | Frozen: 1074 (85%) | Speedup: 6.8x | +12/-13 | 25.7m
+Epoch 304 | Loss: 1.290 | Neurons: 1272 | Frozen: 1083 (85%) | Speedup: 6.7x | +12/-9 | 26.0m
+Epoch 307 | Loss: 1.284 | Neurons: 1284 | Frozen: 1096 (85%) | Speedup: 6.8x | +12/-13 | 26.3m
+Epoch 310 | Loss: 1.283 | Neurons: 1296 | Frozen: 1110 (86%) | Speedup: 7.0x | +12/-14 | 26.6m
+         → "The meaning of life is also has the area 's name in the arterial , and..."
+Epoch 313 | Loss: 1.284 | Neurons: 1308 | Frozen: 1120 (86%) | Speedup: 7.0x | +12/-10 | 26.9m
+Epoch 316 | Loss: 1.272 | Neurons: 1320 | Frozen: 1132 (86%) | Speedup: 7.0x | +12/-12 | 27.3m
+Epoch 319 | Loss: 1.294 | Neurons: 1332 | Frozen: 1144 (86%) | Speedup: 7.1x | +12/-12 | 27.6m
+         → "The meaning of life is a French convoy sailed from the consumption . A..."
+Epoch 322 | Loss: 1.276 | Neurons: 1344 | Frozen: 1156 (86%) | Speedup: 7.1x | +12/-12 | 27.9m
+Epoch 325 | Loss: 1.299 | Neurons: 1356 | Frozen: 1166 (86%) | Speedup: 7.1x | +12/-10 | 28.3m
+Epoch 328 | Loss: 1.239 | Neurons: 1368 | Frozen: 1178 (86%) | Speedup: 7.2x | +12/-12 | 28.6m
+         → "The meaning of life is omnivorous , such as the Aero Club at the local..."
+Epoch 331 | Loss: 1.273 | Neurons: 1380 | Frozen: 1187 (86%) | Speedup: 7.2x | +12/-9 | 28.9m
+Epoch 334 | Loss: 1.257 | Neurons: 1392 | Frozen: 1198 (86%) | Speedup: 7.2x | +12/-11 | 29.3m
+Epoch 337 | Loss: 1.255 | Neurons: 1404 | Frozen: 1204 (86%) | Speedup: 7.0x | +12/-6 | 29.6m
+Epoch 340 | Loss: 1.273 | Neurons: 1416 | Frozen: 1217 (86%) | Speedup: 7.1x | +12/-13 | 29.9m
+         → "The meaning of life is saprob ( APL . In October 2007 . The songwriter..."
+Epoch 343 | Loss: 1.252 | Neurons: 1428 | Frozen: 1226 (86%) | Speedup: 7.1x | +12/-9 | 30.3m
+Epoch 346 | Loss: 1.274 | Neurons: 1440 | Frozen: 1238 (86%) | Speedup: 7.1x | +12/-12 | 30.6m
+Epoch 349 | Loss: 1.257 | Neurons: 1452 | Frozen: 1250 (86%) | Speedup: 7.2x | +12/-12 | 30.9m
+Epoch 350 | Loss: 1.276 | Neurons: 1452 | Frozen: 1250 (86%) | Speedup: 7.2x | +0/-0 | 31.1m
+         → "The meaning of life is sympatric with an alkyloff . In 1990 , which re..."
+Epoch 352 | Loss: 1.489 | Neurons: 1464 | Frozen: 1257 (86%) | Speedup: 7.1x | +12/-7 | 31.3m
+Epoch 355 | Loss: 1.559 | Neurons: 1476 | Frozen: 1261 (85%) | Speedup: 6.9x | +12/-4 | 31.6m
+Epoch 358 | Loss: 1.545 | Neurons: 1488 | Frozen: 1277 (86%) | Speedup: 7.1x | +12/-16 | 32.0m
+         → "The meaning of life is the plain maskray was Aden Jefferies ( equivale..."
+Epoch 361 | Loss: 1.542 | Neurons: 1500 | Frozen: 1287 (86%) | Speedup: 7.0x | +12/-10 | 32.3m
+Epoch 364 | Loss: 1.508 | Neurons: 1512 | Frozen: 1298 (86%) | Speedup: 7.1x | +12/-11 | 32.7m
+Epoch 367 | Loss: 1.483 | Neurons: 1524 | Frozen: 1315 (86%) | Speedup: 7.3x | +12/-17 | 33.0m
+Epoch 370 | Loss: 1.487 | Neurons: 1536 | Frozen: 1323 (86%) | Speedup: 7.2x | +12/-8 | 33.4m
+         → "The meaning of life is a controversial loss to New York State and inte..."
+Epoch 373 | Loss: 1.459 | Neurons: 1548 | Frozen: 1338 (86%) | Speedup: 7.4x | +12/-15 | 33.7m
+Epoch 375 | Loss: 1.428 | Neurons: 1548 | Frozen: 1338 (86%) | Speedup: 7.4x | +0/-0 | 34.0m
+Epoch 376 | Loss: 1.423 | Neurons: 1560 | Frozen: 1350 (87%) | Speedup: 7.4x | +12/-12 | 34.1m
+Epoch 379 | Loss: 1.406 | Neurons: 1572 | Frozen: 1361 (87%) | Speedup: 7.5x | +12/-11 | 34.4m
+         → "The meaning of life is the third battleship of the top 10 on 25 / 26 J..."
+Epoch 382 | Loss: 1.430 | Neurons: 1584 | Frozen: 1374 (87%) | Speedup: 7.5x | +12/-13 | 34.8m
+Epoch 385 | Loss: 1.409 | Neurons: 1596 | Frozen: 1387 (87%) | Speedup: 7.6x | +12/-13 | 35.2m
+Epoch 388 | Loss: 1.429 | Neurons: 1608 | Frozen: 1402 (87%) | Speedup: 7.8x | +12/-15 | 35.5m
+         → "The meaning of life is saprobotic Enbridge and Beverly Hills Middle Sc..."
+Epoch 391 | Loss: 1.434 | Neurons: 1620 | Frozen: 1415 (87%) | Speedup: 7.9x | +12/-13 | 35.9m
+Epoch 394 | Loss: 1.412 | Neurons: 1632 | Frozen: 1430 (88%) | Speedup: 8.1x | +12/-15 | 36.2m
+Epoch 397 | Loss: 1.409 | Neurons: 1644 | Frozen: 1442 (88%) | Speedup: 8.1x | +12/-12 | 36.6m
+Epoch 400 | Loss: 1.432 | Neurons: 1656 | Frozen: 1456 (88%) | Speedup: 8.3x | +12/-14 | 37.0m
+         → "The meaning of life is omnivorous , as " Wilderness " Early Light " , ..."
+Epoch 403 | Loss: 1.410 | Neurons: 1668 | Frozen: 1467 (88%) | Speedup: 8.3x | +12/-11 | 37.3m
+Epoch 406 | Loss: 1.394 | Neurons: 1680 | Frozen: 1483 (88%) | Speedup: 8.5x | +12/-16 | 37.7m
+Epoch 409 | Loss: 1.400 | Neurons: 1692 | Frozen: 1494 (88%) | Speedup: 8.5x | +12/-11 | 38.1m
+         → "The meaning of life is mainly in the city government , higher 1 @-@ 0 ..."
+Epoch 412 | Loss: 1.390 | Neurons: 1704 | Frozen: 1507 (88%) | Speedup: 8.6x | +12/-13 | 38.5m
+Epoch 415 | Loss: 1.397 | Neurons: 1716 | Frozen: 1520 (89%) | Speedup: 8.8x | +12/-13 | 38.8m
+Epoch 418 | Loss: 1.416 | Neurons: 1728 | Frozen: 1531 (89%) | Speedup: 8.8x | +12/-11 | 39.2m
+         → "The meaning of life is a wicked man who oppresses others . It was foun..."
+Epoch 421 | Loss: 1.373 | Neurons: 1740 | Frozen: 1545 (89%) | Speedup: 8.9x | +12/-14 | 39.6m
+Epoch 424 | Loss: 1.375 | Neurons: 1752 | Frozen: 1558 (89%) | Speedup: 9.0x | +12/-13 | 39.9m
+Epoch 425 | Loss: 1.388 | Neurons: 1752 | Frozen: 1558 (89%) | Speedup: 9.0x | +0/-0 | 40.1m
+Epoch 427 | Loss: 1.372 | Neurons: 1764 | Frozen: 1570 (89%) | Speedup: 9.1x | +12/-12 | 40.3m
+Epoch 430 | Loss: 1.365 | Neurons: 1776 | Frozen: 1580 (89%) | Speedup: 9.1x | +12/-10 | 40.7m
+         → "The meaning of life is sympatric with the game 's by the genus . The m..."
+Epoch 433 | Loss: 1.352 | Neurons: 1788 | Frozen: 1591 (89%) | Speedup: 9.1x | +12/-11 | 41.1m
+Epoch 436 | Loss: 1.381 | Neurons: 1800 | Frozen: 1606 (89%) | Speedup: 9.3x | +12/-15 | 41.5m
+Epoch 439 | Loss: 1.363 | Neurons: 1812 | Frozen: 1618 (89%) | Speedup: 9.3x | +12/-12 | 41.8m
+         → "The meaning of life is a French convoy sailed from Asian bah people . ..."
+Epoch 442 | Loss: 1.388 | Neurons: 1824 | Frozen: 1631 (89%) | Speedup: 9.5x | +12/-13 | 42.2m
+Epoch 445 | Loss: 1.378 | Neurons: 1836 | Frozen: 1643 (89%) | Speedup: 9.5x | +12/-12 | 42.6m
+Epoch 448 | Loss: 1.327 | Neurons: 1848 | Frozen: 1652 (89%) | Speedup: 9.4x | +12/-9 | 43.0m
+Epoch 450 | Loss: 1.371 | Neurons: 1848 | Frozen: 1652 (89%) | Speedup: 9.4x | +0/-0 | 43.3m
+         → "The meaning of life is the Soviets , which was the world around them ,..."
+Epoch 451 | Loss: 1.353 | Neurons: 1860 | Frozen: 1665 (90%) | Speedup: 9.5x | +12/-13 | 43.4m
+Epoch 454 | Loss: 1.369 | Neurons: 1872 | Frozen: 1679 (90%) | Speedup: 9.7x | +12/-14 | 43.8m
+Epoch 457 | Loss: 1.354 | Neurons: 1884 | Frozen: 1691 (90%) | Speedup: 9.8x | +12/-12 | 44.2m
+Epoch 460 | Loss: 1.350 | Neurons: 1896 | Frozen: 1703 (90%) | Speedup: 9.8x | +12/-12 | 44.5m
+         → "The meaning of life is to exist as a minority stake in the year . He m..."
+Epoch 463 | Loss: 1.335 | Neurons: 1908 | Frozen: 1714 (90%) | Speedup: 9.8x | +12/-11 | 45.0m
+Epoch 466 | Loss: 1.340 | Neurons: 1920 | Frozen: 1729 (90%) | Speedup: 10.1x | +12/-15 | 45.3m
+Epoch 469 | Loss: 1.340 | Neurons: 1932 | Frozen: 1741 (90%) | Speedup: 10.1x | +12/-12 | 45.7m
+         → "The meaning of life is a wicked man who was branded " Carol of the vol..."
+Epoch 472 | Loss: 1.319 | Neurons: 1944 | Frozen: 1753 (90%) | Speedup: 10.2x | +12/-12 | 46.1m
+Epoch 475 | Loss: 1.322 | Neurons: 1956 | Frozen: 1766 (90%) | Speedup: 10.3x | +12/-13 | 46.5m
+Epoch 478 | Loss: 1.334 | Neurons: 1968 | Frozen: 1779 (90%) | Speedup: 10.4x | +12/-13 | 46.9m
+         → "The meaning of life is the American Council on burned soil or charcoal..."
+Epoch 481 | Loss: 1.330 | Neurons: 1980 | Frozen: 1790 (90%) | Speedup: 10.4x | +12/-11 | 47.3m
+Epoch 484 | Loss: 1.315 | Neurons: 1992 | Frozen: 1803 (91%) | Speedup: 10.5x | +12/-13 | 47.7m
+Epoch 487 | Loss: 1.322 | Neurons: 2004 | Frozen: 1817 (91%) | Speedup: 10.7x | +12/-14 | 48.1m
+Epoch 490 | Loss: 1.311 | Neurons: 2016 | Frozen: 1829 (91%) | Speedup: 10.8x | +12/-12 | 48.5m
+         → "The meaning of life is a revolutionary period of the course of his tim..."
+Epoch 493 | Loss: 1.320 | Neurons: 2028 | Frozen: 1840 (91%) | Speedup: 10.8x | +12/-11 | 49.0m
+Epoch 496 | Loss: 1.335 | Neurons: 2040 | Frozen: 1849 (91%) | Speedup: 10.7x | +12/-9 | 49.4m
+Epoch 499 | Loss: 1.286 | Neurons: 2052 | Frozen: 1863 (91%) | Speedup: 10.9x | +12/-14 | 49.8m
+Epoch 500 | Loss: 1.294 | Neurons: 2052 | Frozen: 1863 (91%) | Speedup: 10.9x | +0/-0 | 49.9m
+         → "The meaning of life is solitary on the NBA ' experiences during his ca..."
+Epoch 502 | Loss: 1.327 | Neurons: 2064 | Frozen: 1875 (91%) | Speedup: 10.9x | +12/-12 | 50.2m
+Epoch 505 | Loss: 1.297 | Neurons: 2076 | Frozen: 1886 (91%) | Speedup: 10.9x | +12/-11 | 50.6m
+Epoch 508 | Loss: 1.317 | Neurons: 2088 | Frozen: 1897 (91%) | Speedup: 10.9x | +12/-11 | 51.0m
+         → "The meaning of life is the US Geological Survey , Stansfield decided t..."
+Epoch 511 | Loss: 1.302 | Neurons: 2100 | Frozen: 1908 (91%) | Speedup: 10.9x | +12/-11 | 51.4m
+Epoch 514 | Loss: 1.277 | Neurons: 2112 | Frozen: 1918 (91%) | Speedup: 10.9x | +12/-10 | 51.8m
+Epoch 517 | Loss: 1.284 | Neurons: 2124 | Frozen: 1929 (91%) | Speedup: 10.9x | +12/-11 | 52.2m
+Epoch 520 | Loss: 1.297 | Neurons: 2136 | Frozen: 1938 (91%) | Speedup: 10.8x | +12/-9 | 52.7m
+         → "The meaning of life is solitary on the wintering grounds , hemostatic ..."
+Epoch 523 | Loss: 1.284 | Neurons: 2148 | Frozen: 1951 (91%) | Speedup: 10.9x | +12/-13 | 53.1m
+Epoch 525 | Loss: 1.286 | Neurons: 2148 | Frozen: 1951 (91%) | Speedup: 10.9x | +0/-0 | 53.4m
+Epoch 526 | Loss: 1.271 | Neurons: 2160 | Frozen: 1964 (91%) | Speedup: 11.0x | +12/-13 | 53.5m
+Epoch 529 | Loss: 1.285 | Neurons: 2172 | Frozen: 1975 (91%) | Speedup: 11.0x | +12/-11 | 53.9m
+         → "The meaning of life is a FIFA @-@ cuff " Carol of the junta after his ..."
+Epoch 532 | Loss: 1.279 | Neurons: 2184 | Frozen: 1989 (91%) | Speedup: 11.2x | +12/-14 | 54.4m
+Epoch 535 | Loss: 1.267 | Neurons: 2196 | Frozen: 1998 (91%) | Speedup: 11.1x | +12/-9 | 54.8m
+Epoch 538 | Loss: 1.279 | Neurons: 2208 | Frozen: 2011 (91%) | Speedup: 11.2x | +12/-13 | 55.2m
+         → "The meaning of life is seen by 2 – 24 @,@ fashioned communist , and fe..."
+Epoch 541 | Loss: 1.262 | Neurons: 2220 | Frozen: 2023 (91%) | Speedup: 11.3x | +12/-12 | 55.6m
+Epoch 544 | Loss: 1.269 | Neurons: 2232 | Frozen: 2030 (91%) | Speedup: 11.0x | +12/-7 | 56.1m
+Epoch 547 | Loss: 1.278 | Neurons: 2244 | Frozen: 2039 (91%) | Speedup: 10.9x | +12/-9 | 56.5m
+Epoch 550 | Loss: 1.255 | Neurons: 2256 | Frozen: 2051 (91%) | Speedup: 11.0x | +12/-12 | 56.9m
+         → "The meaning of life is a 1stin , which sometimes absorbed the Intifada..."
+Epoch 553 | Loss: 1.259 | Neurons: 2268 | Frozen: 2059 (91%) | Speedup: 10.9x | +12/-8 | 57.4m
+Epoch 556 | Loss: 1.267 | Neurons: 2280 | Frozen: 2073 (91%) | Speedup: 11.0x | +12/-14 | 57.8m
+Epoch 559 | Loss: 1.266 | Neurons: 2292 | Frozen: 2083 (91%) | Speedup: 11.0x | +12/-10 | 58.2m
+         → "The meaning of life is seen by oxidation by the midst of the period en..."
+Epoch 562 | Loss: 1.255 | Neurons: 2304 | Frozen: 2097 (91%) | Speedup: 11.1x | +12/-14 | 58.7m
+Epoch 565 | Loss: 1.237 | Neurons: 2316 | Frozen: 2106 (91%) | Speedup: 11.0x | +12/-9 | 59.1m
+Epoch 568 | Loss: 1.262 | Neurons: 2328 | Frozen: 2117 (91%) | Speedup: 11.0x | +12/-11 | 59.5m
+         → "The meaning of life is the Soviets , a guest appearances on the Battle..."
+Epoch 571 | Loss: 1.229 | Neurons: 2340 | Frozen: 2125 (91%) | Speedup: 10.9x | +12/-8 | 60.0m
+Epoch 574 | Loss: 1.237 | Neurons: 2352 | Frozen: 2136 (91%) | Speedup: 10.9x | +12/-11 | 60.4m
+Epoch 575 | Loss: 1.232 | Neurons: 2352 | Frozen: 2136 (91%) | Speedup: 10.9x | +0/-0 | 60.6m
+Epoch 577 | Loss: 1.243 | Neurons: 2364 | Frozen: 2149 (91%) | Speedup: 11.0x | +12/-13 | 60.9m
+Epoch 580 | Loss: 1.238 | Neurons: 2376 | Frozen: 2155 (91%) | Speedup: 10.8x | +12/-6 | 61.3m
+         → "The meaning of life is a party girl , Wheeler was wheeling and the fun..."
+Epoch 583 | Loss: 1.238 | Neurons: 2388 | Frozen: 2166 (91%) | Speedup: 10.8x | +12/-11 | 61.8m
+Epoch 586 | Loss: 1.233 | Neurons: 2400 | Frozen: 2176 (91%) | Speedup: 10.7x | +12/-10 | 62.2m
+Epoch 589 | Loss: 1.241 | Neurons: 2412 | Frozen: 2186 (91%) | Speedup: 10.7x | +12/-10 | 62.7m
+         → "The meaning of life is omnivorous , which he would like Isis and rock ..."
+Epoch 592 | Loss: 1.238 | Neurons: 2424 | Frozen: 2194 (91%) | Speedup: 10.5x | +12/-8 | 63.1m
+Epoch 595 | Loss: 1.239 | Neurons: 2436 | Frozen: 2205 (91%) | Speedup: 10.5x | +12/-11 | 63.6m
+Epoch 598 | Loss: 1.239 | Neurons: 2448 | Frozen: 2215 (90%) | Speedup: 10.5x | +12/-10 | 64.0m
+Epoch 600 | Loss: 1.215 | Neurons: 2448 | Frozen: 2215 (90%) | Speedup: 10.5x | +0/-0 | 64.3m
+         → "The meaning of life is a 1998 episode for arctic , both for Galveston ..."
+
+======================================================================
+[6] Final Visualization
+======================================================================
+    Saved: runs/crystal_gpt2_20251226_150401/summary.png
+    Saved: runs/crystal_gpt2_20251226_150401/crystal_final.pt
+
+======================================================================
+[7] Final Generation Test
+======================================================================
+
+  The meaning of life is a revolutionary period of the United States . The small minority of the series of the names of the Year – 4 cm ( leukocyte antigen [ sousveillance ) .
+
+  Neural networks learn from a layered structure ( featuring rapper Attitude ) , the 2008 , with white sleeves , which , a regular Hindu place of worship , listed the same time . " and the
+
+  The universe began the film footage of the first novel that the many acts of the " elected " . The Coming of the Year in population . Polish death , and the GA sector . 
+
+
+  Science has shown that , the synagogue , the human body via urine . Antimony and his finds . A Presbyterian congregation was finally galvanized into the gods were described as the varsity basketball team during
+
+
+All visualizations saved to: runs/crystal_gpt2_20251226_150401/
+Frames: epoch_000.png through epoch_600_final.png
+
+To create animation: ffmpeg -framerate 5 -pattern_type glob -i 'runs/crystal_gpt2_20251226_150401/epoch_*.png' -c:v libx264 crystal_growth.mp4
+➜  pnn git:(master) ✗ 
