@@ -1,0 +1,8 @@
+{
+  "num_neurons": 96,
+  "num_frozen": 0,
+  "num_active": 96,
+  "input_dim": 784,
+  "output_dim": 10,
+  "frozen_ratio": 0.0
+}

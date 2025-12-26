@@ -660,11 +660,12 @@ def train_growing_crystal():
     print(f"Best accuracy: {best_acc:.2f}%")
     print(f"Final speedup: {model.stats['speedup'][-1]:.2f}x")
 
-    # Save model
+    # Save model with frozen mask!
     torch.save({
         'model_state_dict': model.state_dict(),
         'stats': model.stats,
         'num_neurons': model.num_neurons,
+        'frozen_mask': model.frozen_mask,  # Critical for compilation!
     }, f'{output_dir}/model_final.pt')
 
     # Create GIF
