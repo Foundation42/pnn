@@ -1,0 +1,167 @@
+➜  pnn git:(master) ✗ python crystallize_gpt2_v3.py
+
+
+2025-12-26 13:52:55.666482: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1766757175.682543 1665719 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1766757175.687404 1665719 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1766757175.700253 1665719 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1766757175.700280 1665719 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1766757175.700282 1665719 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1766757175.700285 1665719 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-12-26 13:52:55.703962: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+======================================================================
+CRYSTALLIZE GPT-2 v3: EXTENDED TRAINING
+Making the crystal THINK!
+======================================================================
+Device: cuda
+
+[1] Loading models...
+    Teacher: 124,439,808 params
+
+[2] Loading WikiText...
+    Loaded 2000 samples
+
+[3] Creating Crystal...
+    Initial neurons: 24 × 6 = 144
+    Max neurons: 256 × 6 = 1536
+
+[4] Training Crystal (500 epochs)...
+======================================================================
+Epoch   1 | Loss: 5.554 | Neurons: 144 | Frozen:   0 (0%) | Speedup: 1.0x | Time: 0.1m
+         → "The meaning of life of the species . The P @-@ 4 @/.@-@.@ " and..."
+
+Epoch   2 | Loss: 3.698 | Neurons: 144 | Frozen:   0 (0%) | Speedup: 1.0x | Time: 0.1m
+         → "Neural networks learn that the first of God did to perform the same " , who was ..."
+
+Epoch   3 | Loss: 3.521 | Neurons: 144 | Frozen:   0 (0%) | Speedup: 1.0x | Time: 0.2m
+         → "The universe is a single @-@ 1 @-@ (2O. @-@ 1 @-@..."
+
+Epoch   4 | Loss: 3.413 | Neurons: 144 | Frozen:   0 (0%) | Speedup: 1.0x | Time: 0.3m
+         → "The meaning of life is a new " , in the year in the US 0 @.@ 2 @-@ 000..."
+
+Epoch   5 | Loss: 3.318 | Neurons: 144 | Frozen:   0 (0%) | Speedup: 1.0x | Time: 0.3m
+         → "Neural networks learn the Dershowitz 's . The song " The new group , and a diffe..."
+
+Epoch  25 | Loss: 2.608 | Neurons: 204 | Frozen:  22 (11%) | Speedup: 1.1x | Time: 1.6m
+         → "The meaning of life of the first played in a high @-@ 5 , it was a " and an aver..."
+
+Epoch  50 | Loss: 2.425 | Neurons: 300 | Frozen:  95 (32%) | Speedup: 1.5x | Time: 3.3m
+         → "Neural networks learn the city,@ language and the American League in the same na..."
+
+Epoch  75 | Loss: 2.304 | Neurons: 396 | Frozen: 184 (46%) | Speedup: 1.9x | Time: 5.1m
+         → "The universe is a number of the first five games , " ( equivalent " and to the U..."
+
+Epoch 100 | Loss: 1.989 | Neurons: 504 | Frozen: 306 (61%) | Speedup: 2.5x | Time: 7.0m
+         → "The meaning of life begins with the UK was an alkyl group the late 1920s second ..."
+
+Epoch 125 | Loss: 1.733 | Neurons: 600 | Frozen: 407 (68%) | Speedup: 3.1x | Time: 9.0m
+         → "Neural networks learn the city had an episode entitled What ever happened to a n..."
+
+Epoch 150 | Loss: 1.659 | Neurons: 696 | Frozen: 508 (73%) | Speedup: 3.7x | Time: 11.0m
+         → "The universe is a similar fate in the island have a.@ Palestine Studies , and po..."
+
+Epoch 175 | Loss: 1.713 | Neurons: 804 | Frozen: 614 (76%) | Speedup: 4.2x | Time: 13.2m
+         → "The meaning of life at the Austro @-@ secondary institutions offering traditiona..."
+
+Epoch 200 | Loss: 1.597 | Neurons: 900 | Frozen: 711 (79%) | Speedup: 4.8x | Time: 15.5m
+         → "Neural networks learn them to the first cancer genome to archaeology that the Co..."
+
+Epoch 225 | Loss: 1.495 | Neurons: 996 | Frozen: 809 (81%) | Speedup: 5.3x | Time: 17.8m
+         → "The universe is being increasingly used in the city,@ Hungarian Fleet 's for the..."
+
+Epoch 250 | Loss: 1.396 | Neurons: 1104 | Frozen: 917 (83%) | Speedup: 5.9x | Time: 20.3m
+         → "The meaning of life is the betaine by counterions such as a strong regional cohe..."
+
+Epoch 275 | Loss: 1.353 | Neurons: 1200 | Frozen: 1014 (84%) | Speedup: 6.5x | Time: 22.8m
+         → "Neural networks learn the Dream Lords ( two sets of the city 's research caused ..."
+
+Epoch 300 | Loss: 1.309 | Neurons: 1296 | Frozen: 1108 (85%) | Speedup: 6.9x | Time: 25.4m
+         → "The universe is a number of the site of the team that Mutinus elegans was a repo..."
+
+Epoch 325 | Loss: 1.258 | Neurons: 1404 | Frozen: 1214 (86%) | Speedup: 7.4x | Time: 28.1m
+         → "The meaning of life is a Roman Catholic church designed as myelodysplastic syndr..."
+
+Epoch 350 | Loss: 1.273 | Neurons: 1500 | Frozen: 1299 (87%) | Speedup: 7.5x | Time: 31.0m
+         → "Neural networks learn the city at Waterloo station , in the " or " Celebration o..."
+
+Epoch 375 | Loss: 1.465 | Neurons: 1536 | Frozen: 1388 (90%) | Speedup: 10.4x | Time: 33.8m
+         → "The universe is 2 @-@ Feodosiya Operation Krasnyi Kavkaz sailed into the..."
+
+Epoch 400 | Loss: 1.396 | Neurons: 1536 | Frozen: 1453 (95%) | Speedup: 18.5x | Time: 36.7m
+         → "The meaning of life is the Catholic Church states that the 15 @-@ 000 sq ft ) 2 ..."
+
+Epoch 425 | Loss: 1.399 | Neurons: 1536 | Frozen: 1482 (96%) | Speedup: 28.4x | Time: 39.6m
+         → "Neural networks learn what role the film , allowing the British archaeology ; th..."
+
+Epoch 450 | Loss: 1.368 | Neurons: 1536 | Frozen: 1503 (98%) | Speedup: 46.5x | Time: 42.5m
+         → "The universe is a number one on the soundtrack in the 1930 short @.S.A.@ 45 and ..."
+
+Epoch 475 | Loss: 1.342 | Neurons: 1536 | Frozen: 1512 (98%) | Speedup: 64.0x | Time: 45.4m
+         → "The meaning of life is saprob ( German : An Essay on the church.@ known sculptur..."
+
+Epoch 500 | Loss: 1.285 | Neurons: 1536 | Frozen: 1512 (98%) | Speedup: 64.0x | Time: 48.3m
+         → "Neural networks learn the novel was " the state , and Jimmy Fallon became co-@ B..."
+
+
+======================================================================
+[5] Final Generation Test
+======================================================================
+
+Crystal Generation (temperature=0.7):
+
+  The meaning of life is achieved , and became the TV series The " , at the risk of the " for the hurricane and Sciences , branch of the day and the Uy was hired as the Academy , as an older sister
+
+  In the beginning,@ marked human bone assemblage , and an assignment in the perceived dangers of the American retired professional basketball player . In its donors $2 , and her controlling behaviour became too much for Hartford 's
+
+  Neural networks are the island , the Blue Jackets 'aak Chapat , in 1982 , the other on the film as bordering on the throne and it is mainly seen on The garrison at most 1. Patrick 's
+
+  The universe began with the Dream " as state legislators , Dershowitz said Finkelstein is an American retired professional basketball player . This hill is exhibited by the new BBC television series , in the Confederacy after she made
+
+  Science has shown that he opened his Jewish parents ' experiences during World War II . His mother , Washington , at the Reverend Lymph node swelling is topped with the Creator , and by the Dutch government on the Holocaust , the
+
+  Artificial intelligence will to be declared , his girlfriend since 2002.@ 5 cm ( 1991 ) -Northern Thai roots . The risk is a return to the project during development was released in New York City. Dunnington .
+
+
+Teacher (GPT-2) for comparison:
+
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+  The meaning of life is in your soul. Your life is your heart. It's in your heart. Everything you do is in your heart. You are a part of it and it's in your heart. You are a
+
+  In the beginning, she was a great woman. She had a beautiful face…and a beautiful face that was beautiful. She was very smart, very good at business. And she was very good at mathematics…she studied
+
+  Neural networks are the most important and most effective tools to build a strong network, but what if you are in a situation where you need to build up to a large number of nodes?
+
+Imagine you have a
+
+======================================================================
+[6] Visualization
+======================================================================
+
+Saved: crystal_gpt2_extended.png
+
+======================================================================
+CRYSTALLIZATION COMPLETE!
+======================================================================
+
+    Training time: 48.3 minutes
+
+    CRYSTAL STATS:
+    - Total neurons: 1536
+    - Frozen neurons: 1512 (98.4%)
+    - Active neurons: 24
+    - Training speedup: 64.0x
+
+    GROWTH:
+    - Started: 144 neurons
+    - Final: 1536 neurons
+    - Growth: 10.7x
+
+    The crystal has learned to SPEAK!
+    "Knowledge crystallizes into geometry."
+
+Saved: crystal_gpt2_extended.pt
+➜  pnn git:(master) ✗ date
+Fri 26 Dec 14:41:54 GMT 2025
+➜  pnn git:(master) ✗ 
