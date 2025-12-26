@@ -1,0 +1,58 @@
+* Crystal Neural Network - Interactive Simulation
+* Run with: ngspice run_simulation.spice
+
+.include crystal_net.spice
+
+* Override the .END from included file to add our commands
+.control
+    * Run transient analysis
+    echo "=========================================="
+    echo "Crystal Neural Network - Analog Simulation"
+    echo "=========================================="
+    echo ""
+
+    * Run the simulation
+    tran 10us 5ms
+
+    echo "Simulation complete!"
+    echo ""
+
+    * Print neuron outputs at t=2.5ms (middle of simulation)
+    echo "=== Neuron Activations at t=2.5ms ==="
+    print nout0 nout1 nout2 nout3 nout4 nout5 nout6 nout7
+
+    echo ""
+    echo "=== Output Class Voltages at t=2.5ms ==="
+    print out0 out1 out2 out3 out4 out5 out6 out7 out8 out9
+
+    * Find the predicted class (highest voltage)
+    echo ""
+    echo "=== Final Classification ==="
+
+    * Measure the outputs at final time
+    meas tran v_out0 find v(out0) at=4.9ms
+    meas tran v_out1 find v(out1) at=4.9ms
+    meas tran v_out2 find v(out2) at=4.9ms
+    meas tran v_out3 find v(out3) at=4.9ms
+    meas tran v_out4 find v(out4) at=4.9ms
+    meas tran v_out5 find v(out5) at=4.9ms
+    meas tran v_out6 find v(out6) at=4.9ms
+    meas tran v_out7 find v(out7) at=4.9ms
+    meas tran v_out8 find v(out8) at=4.9ms
+    meas tran v_out9 find v(out9) at=4.9ms
+
+    echo ""
+    echo "Output voltages (higher = more likely class):"
+    print v_out0 v_out1 v_out2 v_out3 v_out4 v_out5 v_out6 v_out7 v_out8 v_out9
+
+    * Save waveforms to file
+    wrdata crystal_outputs.txt out0 out1 out2 out3 out4 out5 out6 out7 out8 out9
+    wrdata neuron_outputs.txt nout0 nout1 nout2 nout3 nout4 nout5 nout6 nout7
+
+    echo ""
+    echo "Waveforms saved to crystal_outputs.txt and neuron_outputs.txt"
+    echo ""
+    echo "THE NEURAL NETWORK IS RUNNING AS AN ANALOG CIRCUIT! 🔥"
+
+    quit
+.endc

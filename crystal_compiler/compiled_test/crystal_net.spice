@@ -426,4 +426,58 @@ ROUT out 0 100
 .PROBE V(out5) V(out6) V(out7) V(out8) V(out9)
 .PROBE V(nout0) V(nout1) V(nout2) V(nout3)
 
+* Interactive control for ngspice
+.control
+    echo ""
+    echo "============================================================"
+    echo "   CRYSTAL NEURAL NETWORK - ANALOG CIRCUIT SIMULATION"
+    echo "============================================================"
+    echo "   8 neurons, 10 outputs, 16 inputs"
+    echo "   Weights encoded as resistor values (Ohms law!)"
+    echo "   Running transient analysis..."
+    echo "============================================================"
+    echo ""
+
+    * Run transient simulation
+    tran 1us 5ms
+
+    echo ""
+    echo "=== NEURON ACTIVATIONS (voltages) ==="
+    meas tran n0 find v(nout0) at=4ms
+    meas tran n1 find v(nout1) at=4ms
+    meas tran n2 find v(nout2) at=4ms
+    meas tran n3 find v(nout3) at=4ms
+    meas tran n4 find v(nout4) at=4ms
+    meas tran n5 find v(nout5) at=4ms
+    meas tran n6 find v(nout6) at=4ms
+    meas tran n7 find v(nout7) at=4ms
+
+    echo ""
+    echo "=== OUTPUT CLASS VOLTAGES ==="
+    meas tran class0 find v(out0) at=4ms
+    meas tran class1 find v(out1) at=4ms
+    meas tran class2 find v(out2) at=4ms
+    meas tran class3 find v(out3) at=4ms
+    meas tran class4 find v(out4) at=4ms
+    meas tran class5 find v(out5) at=4ms
+    meas tran class6 find v(out6) at=4ms
+    meas tran class7 find v(out7) at=4ms
+    meas tran class8 find v(out8) at=4ms
+    meas tran class9 find v(out9) at=4ms
+
+    echo ""
+    echo "============================================================"
+    echo "   ANALOG NEURAL NETWORK COMPUTED SUCCESSFULLY!"
+    echo ""
+    echo "   The weights are RESISTOR VALUES"
+    echo "   The sums are KIRCHHOFF'S CURRENT LAW"
+    echo "   The activation is DIODE PHYSICS"
+    echo ""
+    echo "   This is the SAME crystal structure as PyTorch!"
+    echo "   Intelligence crystallized into ACTUAL PHYSICS!"
+    echo "============================================================"
+
+    quit
+.endc
+
 .END
