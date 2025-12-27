@@ -1,7 +1,7 @@
 """
-Crystal Yorkshire - Growing geometric LM on 1865-1900 Yorkshire historical text
+Crystal Yorkshire - Growing geometric LM on 1865-1900 historical text
 Uses GPT-2's BPE tokenizer and graceful freezing schedule
-Overnight training run on large historical corpus
+Overnight training run on large historical corpus (Yorkshire + main 1865-1900)
 """
 
 import torch
@@ -226,17 +226,35 @@ def clean_text(text):
 
 
 def load_yorkshire_corpus():
-    """Load and clean the Yorkshire corpus"""
-    corpus_path = "../historyLLM/corpus/1865-1900-yorkshire"
+    """Load and clean the Yorkshire + 1865-1900 corpus"""
 
-    print("Loading Yorkshire corpus...")
+    print("Loading historical corpus...")
     all_text = []
 
-    # Load from both directories
+    # Load from Yorkshire-specific corpus
+    yorkshire_path = "../historyLLM/corpus/1865-1900-yorkshire"
     for subdir in ['internet_archive_yorkshire', 'gutenberg_yorkshire']:
-        pattern = os.path.join(corpus_path, subdir, '*.txt')
+        pattern = os.path.join(yorkshire_path, subdir, '*.txt')
         files = glob.glob(pattern)
-        print(f"  Found {len(files)} files in {subdir}")
+        print(f"  Found {len(files)} files in yorkshire/{subdir}")
+
+        for filepath in files:
+            try:
+                with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+                    text = f.read()
+                    if len(text) > 1000:  # Skip tiny files
+                        cleaned = clean_text(text)
+                        if len(cleaned) > 500:
+                            all_text.append(cleaned)
+            except Exception as e:
+                continue
+
+    # Also load from main 1865-1900 corpus
+    main_path = "../historyLLM/corpus/1865-1900"
+    for subdir in ['gutenberg', 'internet_archive']:
+        pattern = os.path.join(main_path, subdir, '*.txt')
+        files = glob.glob(pattern)
+        print(f"  Found {len(files)} files in 1865-1900/{subdir}")
 
         for filepath in files:
             try:
@@ -397,7 +415,7 @@ def main():
             'batch_size': BATCH_SIZE,
             'initial_neurons': INITIAL_NEURONS,
             'max_neurons': MAX_NEURONS,
-            'corpus': '1865-1900-yorkshire',
+            'corpus': '1865-1900-yorkshire + 1865-1900',
             'corpus_tokens': len(tokens)
         }
     }
