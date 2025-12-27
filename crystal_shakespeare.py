@@ -253,15 +253,25 @@ def load_shakespeare():
     return text
 
 
-def create_batches(tokens, batch_size, context_len):
-    """Create training batches"""
-    sequences = []
-    for i in range(0, len(tokens) - context_len - 1, context_len // 2):
-        seq = tokens[i:i + context_len + 1]
-        if len(seq) == context_len + 1:
-            sequences.append(seq)
+def create_batches(tokens, batch_size, context_len, max_sequences=10000):
+    """Create training batches - fast random sampling"""
+    n_tokens = len(tokens)
+    n_possible = (n_tokens - context_len - 1)
 
-    # Shuffle and batch
+    # For small corpora, use all sequences; for large ones, sample randomly
+    if n_possible <= max_sequences:
+        # Small corpus - use strided sampling to get all sequences
+        sequences = []
+        for i in range(0, n_tokens - context_len - 1, context_len // 2):
+            seq = tokens[i:i + context_len + 1]
+            if len(seq) == context_len + 1:
+                sequences.append(seq)
+    else:
+        # Large corpus - sample random positions directly (O(max_sequences) not O(n_tokens))
+        starts = np.random.randint(0, n_possible, size=max_sequences)
+        sequences = [tokens[i:i + context_len + 1] for i in starts]
+
+    # Batch them up
     indices = torch.randperm(len(sequences))
     batches = []
     for i in range(0, len(indices), batch_size):
