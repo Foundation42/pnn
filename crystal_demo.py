@@ -7,6 +7,7 @@ Usage: python crystal_demo.py
        python crystal_demo.py shakespeare.crystal 200 0.8
 """
 
+import os
 import subprocess
 import sys
 import tiktoken
@@ -29,7 +30,7 @@ def load_vocab_mapping(text_path='data/tinyshakespeare.txt'):
 
     return tokenizer, new_to_old
 
-def generate_shakespeare(model_path='shakespeare.crystal', num_tokens=100, temperature=0.8):
+def generate_shakespeare(model_path='shakespeare_788_f32.crystal', num_tokens=100, temperature=0.8):
     """Run the crystal runtime and decode output."""
 
     # Load vocab mapping
@@ -67,7 +68,8 @@ def generate_shakespeare(model_path='shakespeare.crystal', num_tokens=100, tempe
 
     # Print nicely (matching shakespeare.py style)
     print("=" * 60)
-    print("🎭 CRYSTAL SHAKESPEARE - 3.3MB of Poetry 🎭")
+    size_mb = os.path.getsize(model_path) / (1024 * 1024)
+    print(f"🎭 CRYSTAL SHAKESPEARE - {size_mb:.1f}MB of Poetry 🎭")
     print("=" * 60)
     print()
     print(text)
@@ -78,7 +80,7 @@ def generate_shakespeare(model_path='shakespeare.crystal', num_tokens=100, tempe
     print("=" * 60)
 
 if __name__ == "__main__":
-    model = sys.argv[1] if len(sys.argv) > 1 else 'shakespeare.crystal'
+    model = sys.argv[1] if len(sys.argv) > 1 else 'shakespeare_788_f32.crystal'
     tokens = int(sys.argv[2]) if len(sys.argv) > 2 else 100
     temp = float(sys.argv[3]) if len(sys.argv) > 3 else 0.8
 
