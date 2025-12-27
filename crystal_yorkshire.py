@@ -274,29 +274,21 @@ def load_yorkshire_corpus():
     return full_text
 
 
-def create_batches(tokens, batch_size, context_len):
-    """Create training batches"""
-    sequences = []
-    # Use strided sampling for large corpus
-    stride = context_len // 2
-    for i in range(0, len(tokens) - context_len - 1, stride):
-        seq = tokens[i:i + context_len + 1]
-        if len(seq) == context_len + 1:
-            sequences.append(seq)
+def create_batches(tokens, batch_size, context_len, max_sequences=10000):
+    """Create training batches - fast random sampling"""
+    n_tokens = len(tokens)
 
-    # Limit sequences per epoch for reasonable epoch time
-    max_sequences = 10000
-    if len(sequences) > max_sequences:
-        indices = np.random.choice(len(sequences), max_sequences, replace=False)
-        sequences = [sequences[i] for i in indices]
+    # Sample random starting positions directly (O(max_sequences) not O(n_tokens)!)
+    starts = np.random.randint(0, n_tokens - context_len - 1, size=max_sequences)
 
-    # Shuffle and batch
-    indices = torch.randperm(len(sequences))
+    # Build sequences from random positions
+    sequences = [tokens[i:i + context_len + 1] for i in starts]
+
+    # Batch them up
     batches = []
-    for i in range(0, len(indices), batch_size):
-        batch_idx = indices[i:i + batch_size]
-        if len(batch_idx) == batch_size:
-            batch = torch.stack([torch.tensor(sequences[j]) for j in batch_idx])
+    for i in range(0, len(sequences), batch_size):
+        batch = torch.tensor(sequences[i:i + batch_size])
+        if len(batch) == batch_size:
             batches.append(batch)
 
     return batches
