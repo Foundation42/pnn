@@ -28,6 +28,7 @@
 #define CRYSTAL_MAGIC 0x53595243  /* "CRYS" */
 #define FLAG_FLOAT32 0x0008
 #define FLAG_PRUNED_VOCAB 0x0004
+#define FLAG_MIXED8 0x0040
 #define FLAG_CAUSAL 0x0080
 
 /* Header structure v2 (64 bytes) */
@@ -93,8 +94,13 @@ typedef struct {
     float* ffn_b2;            /* [embed_dim] */
 
     /* Output head */
-    float* head_w;            /* [vocab_size][embed_dim] */
+    float* head_w;            /* [vocab_size][embed_dim] - float32 mode */
     float* head_b;            /* [vocab_size] */
+    int8_t* head_w_q;         /* [vocab_size][embed_dim] - int8 mode */
+    int8_t* head_b_q;         /* [vocab_size] */
+    float head_w_scale, head_w_offset;
+    float head_b_scale, head_b_offset;
+    int use_mixed8;
 
     /* Layer norms */
     float* norm_causal_w;     /* [embed_dim] */
@@ -355,9 +361,26 @@ CrystalModel* crystal_load(const char* path) {
     m->ffn_w2 = ffn; ffn += D * H;
     m->ffn_b2 = ffn;
 
-    float* head = (float*)(base + m->header.head_offset);
-    m->head_w = head; head += V * D;
-    m->head_b = head;
+    /* Head - check for mixed8 mode */
+    m->use_mixed8 = (m->header.flags & FLAG_MIXED8) != 0;
+    if (m->use_mixed8) {
+        float* head_scales = (float*)(base + m->header.head_offset);
+        m->head_w_scale = head_scales[0];
+        m->head_w_offset = head_scales[1];
+        m->head_b_scale = head_scales[2];
+        m->head_b_offset = head_scales[3];
+        int8_t* head_q = (int8_t*)(head_scales + 4);
+        m->head_w_q = head_q; head_q += V * D;
+        m->head_b_q = head_q;
+        m->head_w = NULL;
+        m->head_b = NULL;
+    } else {
+        float* head = (float*)(base + m->header.head_offset);
+        m->head_w = head; head += V * D;
+        m->head_b = head;
+        m->head_w_q = NULL;
+        m->head_b_q = NULL;
+    }
 
     float* norm = (float*)(base + m->header.norm_offset);
     if (m->header.num_norms == 3) {
@@ -455,12 +478,25 @@ void generate(CrystalModel* m, WorkingMemory* mem, int* tokens, int num_tokens,
 
         /* Compute logits for last position */
         float* h_last = mem->h + (seq_len - 1) * D;
-        for (int i = 0; i < V; i++) {
-            float sum = m->head_b[i];
-            for (int d = 0; d < D; d++) {
-                sum += h_last[d] * m->head_w[i * D + d];
+        if (m->use_mixed8) {
+            /* Dequantize int8 head weights on the fly */
+            for (int i = 0; i < V; i++) {
+                float bias = m->head_b_q[i] * m->head_b_scale + m->head_b_offset;
+                float sum = bias;
+                for (int d = 0; d < D; d++) {
+                    float w = m->head_w_q[i * D + d] * m->head_w_scale + m->head_w_offset;
+                    sum += h_last[d] * w;
+                }
+                mem->logits[i] = sum / temperature;
             }
-            mem->logits[i] = sum / temperature;
+        } else {
+            for (int i = 0; i < V; i++) {
+                float sum = m->head_b[i];
+                for (int d = 0; d < D; d++) {
+                    sum += h_last[d] * m->head_w[i * D + d];
+                }
+                mem->logits[i] = sum / temperature;
+            }
         }
 
         /* Sample */

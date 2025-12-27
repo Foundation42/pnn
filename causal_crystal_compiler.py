@@ -225,13 +225,25 @@ class CausalCrystalCompiler:
         ffn_b2 = self.weights['ffn.2.bias'].astype(np.float32)
         ffn_data = ffn_w1.tobytes() + ffn_b1.tobytes() + ffn_w2.tobytes() + ffn_b2.tobytes()
 
-        # Output head (float32 for accuracy)
-        head_w = self.weights['head.weight'].astype(np.float32)
-        head_b = self.weights['head.bias'].astype(np.float32)
-        if self.prune_vocab:
-            head_w = head_w[self.used_tokens]
-            head_b = head_b[self.used_tokens]
-        head_data = head_w.tobytes() + head_b.tobytes()
+        # Output head - quantize for mixed8 (this is the biggest tensor: V×D)
+        if self.use_mixed8:
+            # Quantize head weights to int8
+            head_w = self.quantized['head.weight']
+            head_b = self.quantized['head.bias']
+            if self.prune_vocab:
+                head_w = head_w[self.used_tokens]
+                head_b = head_b[self.used_tokens]
+            # Pack: scale, offset, then int8 data
+            head_data = struct.pack('<ff', self.scales['head.weight'], self.offsets_map['head.weight'])
+            head_data += struct.pack('<ff', self.scales['head.bias'], self.offsets_map['head.bias'])
+            head_data += head_w.tobytes() + head_b.tobytes()
+        else:
+            head_w = self.weights['head.weight'].astype(np.float32)
+            head_b = self.weights['head.bias'].astype(np.float32)
+            if self.prune_vocab:
+                head_w = head_w[self.used_tokens]
+                head_b = head_b[self.used_tokens]
+            head_data = head_w.tobytes() + head_b.tobytes()
 
         # Layer norms - handle both old (norm1/norm2) and new (norm_causal/norm_geo/norm_ffn) naming
         if 'norm_causal.weight' in self.weights:
@@ -264,7 +276,11 @@ class CausalCrystalCompiler:
         total_size = norm_offset + len(norm_data)
 
         # === Build header (72 bytes for v2) ===
-        flags = FLAG_FLOAT32  # Keep as float32 for now
+        flags = 0
+        if self.no_quantize:
+            flags |= FLAG_FLOAT32
+        if self.use_mixed8:
+            flags |= FLAG_MIXED8
         if self.prune_vocab:
             flags |= FLAG_PRUNED_VOCAB
         if self.has_causal:
@@ -331,7 +347,7 @@ class CausalCrystalCompiler:
 
 def main():
     if len(sys.argv) < 3:
-        print("Usage: python causal_crystal_compiler.py model.pt output.crystal [--prune-vocab text.txt]")
+        print("Usage: python causal_crystal_compiler.py model.pt output.crystal [--prune-vocab text.txt] [--mixed8]")
         sys.exit(1)
 
     model_path = sys.argv[1]
@@ -343,13 +359,15 @@ def main():
         if idx + 1 < len(sys.argv):
             text_path = sys.argv[idx + 1]
 
-    no_quantize = '--no-quantize' in sys.argv or True  # Default to float32 for now
+    use_mixed8 = '--mixed8' in sys.argv
+    no_quantize = '--no-quantize' in sys.argv or (not use_mixed8)  # Default to float32 unless mixed8
 
     compiler = CausalCrystalCompiler(
         model_path, output_path,
         prune_vocab=prune_vocab,
         text_path=text_path,
-        no_quantize=no_quantize
+        no_quantize=no_quantize,
+        use_mixed8=use_mixed8
     )
     compiler.compile()
 
