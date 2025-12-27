@@ -23,9 +23,9 @@ EMBED_DIM = 192  # Larger for richer corpus
 CONTEXT_LEN = 128  # Longer context for historical prose
 BATCH_SIZE = 24
 EPOCHS = 800  # Long overnight run
-INITIAL_NEURONS = 96
-MAX_NEURONS = 2048  # More capacity for large corpus
-GROWTH_INTERVAL = 10
+INITIAL_NEURONS = 1000  # Start with more capacity for 1.15B char corpus
+MAX_NEURONS = 8192  # Much more capacity for large corpus
+GROWTH_INTERVAL = 5  # Grow faster
 
 
 class GeometricAttention(nn.Module):
@@ -460,11 +460,11 @@ def main():
                 progress = epoch / EPOCHS
 
                 if progress < 0.3:
-                    base_grow = 32
+                    base_grow = 64  # Aggressive early growth for large corpus
                 elif progress < 0.6:
-                    base_grow = 16
+                    base_grow = 32
                 else:
-                    base_grow = 8
+                    base_grow = 16
 
                 grow = min(base_grow, MAX_NEURONS - model.num_neurons, max(active // 2, 2))
                 model.attention.grow_neurons(grow)
