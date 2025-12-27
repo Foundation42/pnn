@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+*.egg
+
+# Model files (too large for git)
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Crystal model files (can be regenerated)
+*.crystal
+
+# Training runs (contain large files)
+runs/
+
+# Data
+data/
+
+# Compiled binaries
+*.o
+*.so
+benchmark
+benchmark_cuda
+crystal_runtime
+crystal_runtime_debug
+crystal_shakespeare
+
+# Generated files
+*.gif
+*.mp4
+
+# Large generated C files
+crystal_shakespeare_full.c
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
