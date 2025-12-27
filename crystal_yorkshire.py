@@ -302,7 +302,7 @@ def create_batches(tokens, batch_size, context_len):
     return batches
 
 
-def visualize_crystal(model, epoch, run_dir, sample_text="", pca_model=None, axis_limits=None):
+def visualize_crystal(model, epoch, run_dir, sample_text="", pca_model=None):
     """Visualize the crystal structure"""
     positions = model.attention.positions.detach().cpu().numpy()
     frozen = model.attention.frozen.cpu().numpy()
@@ -333,12 +333,13 @@ def visualize_crystal(model, epoch, run_dir, sample_text="", pca_model=None, axi
     ax.set_xlabel('PC1')
     ax.set_ylabel('PC2')
 
-    if axis_limits:
-        ax.set_xlim(axis_limits['x'])
-        ax.set_ylim(axis_limits['y'])
-    else:
-        ax.set_xlim(-10, 10)
-        ax.set_ylim(-10, 10)
+    # Adaptive axis limits with 20% padding
+    x_min, x_max = pos_2d[:, 0].min(), pos_2d[:, 0].max()
+    y_min, y_max = pos_2d[:, 1].min(), pos_2d[:, 1].max()
+    x_pad = max(0.5, (x_max - x_min) * 0.2)
+    y_pad = max(0.5, (y_max - y_min) * 0.2)
+    ax.set_xlim(x_min - x_pad, x_max + x_pad)
+    ax.set_ylim(y_min - y_pad, y_max + y_pad)
 
     ax = axes[1]
     ax.text(0.02, 0.5, sample_text[:600], fontsize=8, family='monospace',
@@ -420,7 +421,6 @@ def main():
         }
     }
     pca_model = None
-    axis_limits = {'x': (-10, 10), 'y': (-10, 10)}
 
     # Sample prompts for generation
     prompts = [
@@ -515,7 +515,7 @@ def main():
 
         # Visualize every 20 epochs
         if epoch % 20 == 0 or epoch == 1:
-            pca_model = visualize_crystal(model, epoch, run_dir, sample, pca_model, axis_limits)
+            pca_model = visualize_crystal(model, epoch, run_dir, sample, pca_model)
 
         # Save best
         if avg_loss < best_loss:
@@ -532,7 +532,7 @@ def main():
 
     # Final visualization
     sample = generate(model, tokenizer, "In Yorkshire,", max_tokens=200, temperature=0.8)
-    visualize_crystal(model, EPOCHS, run_dir, sample, pca_model, axis_limits)
+    visualize_crystal(model, EPOCHS, run_dir, sample, pca_model)
 
     # Save final config
     config_data = {
